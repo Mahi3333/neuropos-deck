@@ -2,9 +2,9 @@
 
 > **The Future of Restaurant Management Systems**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://neuropos.com)
-[![Status](https://img.shields.io/badge/Status-Building-blue?style=for-the-badge)](https://github.com/umamahesh/neuropos-deck)
-[![Technology](https://img.shields.io/badge/Tech-AI%20%7C%20ML%20%7C%20Restaurant%20Tech-orange?style=for-the-badge)](https://github.com/umamahesh/neuropos-deck)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://mahi3333.github.io/neuropos-deck/)
+[![Status](https://img.shields.io/badge/Status-Building-blue?style=for-the-badge)](https://github.com/Mahi3333/neuropos-deck)
+[![Technology](https://img.shields.io/badge/Tech-AI%20%7C%20ML%20%7C%20Restaurant%20Tech-orange?style=for-the-badge)](https://github.com/Mahi3333/neuropos-deck)
 
 ## 🚀 **Live Demo**
 **View the stunning investor deck:** [https://mahi3333.github.io/neuropos-deck/](https://mahi3333.github.io/neuropos-deck/)
