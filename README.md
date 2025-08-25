@@ -7,7 +7,9 @@
 [![Technology](https://img.shields.io/badge/Tech-AI%20%7C%20ML%20%7C%20Restaurant%20Tech-orange?style=for-the-badge)](https://github.com/umamahesh/neuropos-deck)
 
 ## 🚀 **Live Demo**
-**View the stunning investor deck:** [https://neuropos.com](https://neuropos.com)
+**View the stunning investor deck:** [https://mahi3333.github.io/neuropos-deck/](https://mahi3333.github.io/neuropos-deck/)
+
+**GitHub Pages:** [https://mahi3333.github.io/neuropos-deck/](https://mahi3333.github.io/neuropos-deck/)
 
 ## 💡 **What is NeuroPOS?**
 
@@ -65,8 +67,8 @@ Currently seeking strategic partnerships and investment to accelerate MVP develo
 
 ## 🔗 **Links**
 
-- **Live Demo:** [https://neuropos.com](https://neuropos.com)
-- **Investor Deck:** [View Full Presentation](https://neuropos.com)
+- **Live Demo:** [https://mahi3333.github.io/neuropos-deck/](https://mahi3333.github.io/neuropos-deck/)
+- **Investor Deck:** [View Full Presentation](https://mahi3333.github.io/neuropos-deck/)
 - **Business Plan:** Available upon request
 
 ---
