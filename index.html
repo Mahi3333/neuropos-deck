@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 NeuroPOS | The Future of Restaurant Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-success: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-danger);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-danger);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .problem-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .problem-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .solution-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .solution-content h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .solution-content p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .solution-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .solution-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .solution-feature:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .solution-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-success);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .solution-visual {
+            position: relative;
+            height: 500px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .solution-visual::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+        }
+
+        .solution-visual-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .solution-visual-content i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-visual-content h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Market Section */
+        .market {
+            background: white;
+        }
+
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .market-stat {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .market-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .market-stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .market-stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        .technology .section-title {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .technology .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .tech-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tech-description {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team {
+            background: white;
+        }
+
+        .team-profile {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .team-role {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .team-skill {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button.primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .solution-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .team-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Interactive Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-around 20s linear infinite;
+        }
+
+        @keyframes float-around {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">🧠 NeuroPOS</div>
+            <ul class="nav-menu">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">The Future of Restaurant Intelligence</h1>
+            <p class="hero-subtitle">AI-powered POS system that transforms restaurants from reactive to predictive, delivering 10X better value than competitors</p>
+            <a href="#contact" class="hero-cta">
+                <i class="fas fa-rocket"></i>
+                Join the Revolution
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section problem">
+        <div class="section-header">
+            <h2 class="section-title">The $162B Problem</h2>
+            <p class="section-subtitle">Restaurants are drowning in operational inefficiencies, manual processes, and missed opportunities</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3 class="problem-title">Skyrocketing Costs</h3>
+                <p class="problem-description">60-70% of revenue goes to labor, inventory, and overhead, leaving minimal profit margins</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="problem-title">Manual Inefficiency</h3>
+                <p class="problem-description">Time-consuming manual processes for inventory, pricing, and staff scheduling</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="problem-title">Reactive Management</h3>
+                <p class="problem-description">Problems identified after they impact business, leading to lost revenue and customer dissatisfaction</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="problem-title">Vendor Lock-in</h3>
+                <p class="problem-description">Expensive, proprietary systems that don't adapt to business needs or scale efficiently</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section solution">
+        <div class="section-header">
+            <h2 class="section-title">AI-First Solution</h2>
+            <p class="section-subtitle">NeuroPOS transforms every aspect of restaurant operations through intelligent automation and predictive insights</p>
+        </div>
+        <div class="solution-showcase">
+            <div class="solution-content">
+                <h3>From Reactive to Predictive</h3>
+                <p>Our AI-powered system learns from every transaction, customer interaction, and market condition to predict and prevent problems before they impact your business.</p>
+                <div class="solution-features">
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span>AI Inventory Management</span>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <span>Voice-Activated POS</span>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span>Dynamic Pricing</span>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span>Smart Staff Scheduling</span>
+                    </div>
+                </div>
+            </div>
+            <div class="solution-visual">
+                <div class="solution-visual-content">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI-Powered Intelligence</h4>
+                    <p>Real-time insights & predictions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Section -->
+    <section id="market" class="section market">
+        <div class="section-header">
+            <h2 class="section-title">Massive Market Opportunity</h2>
+            <p class="section-subtitle">The restaurant technology market is ripe for disruption with AI-first innovation</p>
+        </div>
+        <div class="market-stats">
+            <div class="market-stat">
+                <div class="market-stat-number">$15B</div>
+                <div class="market-stat-label">Global POS Market</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-number">$162B</div>
+                <div class="market-stat-label">Annual Losses</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-number">5.2M</div>
+                <div class="market-stat-label">Restaurants</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-number">12.5%</div>
+                <div class="market-stat-label">Growth Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section technology">
+        <div class="section-header">
+            <h2 class="section-title">Cutting-Edge Technology</h2>
+            <p class="section-subtitle">Built on modern, scalable infrastructure with AI-first design principles</p>
+        </div>
+        <div class="tech-stack">
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="tech-name">AI Engine</h3>
+                <p class="tech-description">TensorFlow/PyTorch with GPU acceleration for real-time ML inference and continuous learning</p>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="tech-name">Cloud Infrastructure</h3>
+                <p class="tech-description">Kubernetes-based microservices with auto-scaling and 99.9% uptime guarantee</p>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="tech-name">Security & Compliance</h3>
+                <p class="tech-description">PCI DSS, SOC 2 Type II, GDPR compliant with end-to-end encryption</p>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="tech-name">Modern Frontend</h3>
+                <p class="tech-description">Angular 17 PWA with offline support and cross-platform compatibility</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section team">
+        <div class="section-header">
+            <h2 class="section-title">Meet the Visionary</h2>
+            <p class="section-subtitle">Passionate founder with a clear vision for disrupting restaurant technology</p>
+        </div>
+        <div class="team-profile">
+            <div class="team-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+                <h3>Uma Maheshwar Matham Setti</h3>
+                <div class="team-role">Founder & CEO</div>
+                <p class="team-description">A passionate entrepreneur with a vision for AI-powered restaurant technology. Currently building the revolutionary NeuroPOS system that will transform how restaurants operate through intelligent automation and predictive insights.</p>
+                <div class="team-skills">
+                    <span class="team-skill">AI/ML</span>
+                    <span class="team-skill">Product Vision</span>
+                    <span class="team-skill">Restaurant Tech</span>
+                    <span class="team-skill">Innovation</span>
+                    <span class="team-skill">Leadership</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <h2 class="cta-title">Ready to Transform Restaurant Technology?</h2>
+        <p class="cta-description">Join us in building the future of intelligent restaurant management. Whether you're an investor, potential partner, or team member, let's revolutionize this industry together.</p>
+        <div class="cta-buttons">
+            <a href="mailto:mumamahesh13@gmail.com" class="cta-button primary">
+                <i class="fas fa-envelope"></i>
+                Get in Touch
+            </a>
+            <a href="tel:+1-603-935-0273" class="cta-button secondary">
+                <i class="fas fa-phone"></i>
+                Call Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🧠 NeuroPOS</div>
+            <div class="footer-contact">
+                <a href="mailto:mumamahesh13@gmail.com">
+                    <i class="fas fa-envelope"></i> mumamahesh13@gmail.com
+                </a>
+                <a href="tel:+1-603-935-0273">
+                    <i class="fas fa-phone"></i> +1-603-935-0273
+                </a>
+                <a href="#">
+                    <i class="fas fa-map-marker-alt"></i> United States
+                </a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 NeuroPOS. All rights reserved. | AI-Powered Restaurant Revolution
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Floating Elements Animation
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDelay = Math.random() * 20 + 's';
+                element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(element);
+            }
+        }
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Interactive Problem Cards
+        document.querySelectorAll('.problem-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Market Stats Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.market-stat-number');
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const numericValue = parseFloat(target.replace(/[^0-9.]/g, ''));
+                const suffix = target.replace(/[0-9.]/g, '');
+                
+                let current = 0;
+                const increment = numericValue / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        current = numericValue;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current) + suffix;
+                }, 20);
+            });
+        }
+
+        // Initialize floating elements
+        createFloatingElements();
+
+        // Animate counters when market section is visible
+        const marketSection = document.getElementById('market');
+        const marketObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    marketObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        marketObserver.observe(marketSection);
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.tech-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(2deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+
+        // Smooth reveal animation for solution features
+        document.querySelectorAll('.solution-feature').forEach((feature, index) => {
+            feature.style.animationDelay = `${index * 0.1}s`;
+            feature.style.animation = 'slideInLeft 0.6s ease-out forwards';
+        });
+
+        // Add click effects to CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add some CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .cta-button {
+                position: relative;
+                overflow: hidden;
+            }
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

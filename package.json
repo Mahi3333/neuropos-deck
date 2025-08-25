@@ -1,0 +1,30 @@
+{
+  "name": "neuropos-deck",
+  "version": "1.0.0",
+  "description": "AI-Powered Restaurant POS System - Investor Deck",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "echo 'Deploy via GitHub Pages'"
+  },
+  "keywords": [
+    "ai",
+    "restaurant",
+    "pos",
+    "investor-deck",
+    "startup",
+    "machine-learning",
+    "restaurant-tech"
+  ],
+  "author": "Uma Maheshwar Matham Setti",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umamahesh/neuropos-deck.git"
+  },
+  "homepage": "https://neuropos.com",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
