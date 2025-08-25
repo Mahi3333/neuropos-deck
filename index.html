@@ -499,6 +499,300 @@
             font-size: 1.1rem;
         }
 
+        .solution-feature .feature-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .solution-feature .feature-title {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .solution-feature .feature-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* Competitive Advantages */
+        .competitive-advantages {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .competitive-advantages h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+        }
+
+        .advantage-item i {
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-success);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .advantage-item span {
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Details Section */
+        .solution-details {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="f" cx="50%" cy="50%"><stop offset="0%" stop-color="%2306b6d4" stop-opacity="0.03"/><stop offset="100%" stop-color="%2306b6d4" stop-opacity="0"/></radialGradient></defs><polygon points="100,100 150,150 200,100 150,50" fill="url(%23f)"/><polygon points="300,200 350,250 400,200 350,150" fill="url(%23f)"/><polygon points="500,150 550,200 600,150 550,100" fill="url(%23f)"/><polygon points="700,250 750,300 800,250 750,200" fill="url(%23f)"/><polygon points="900,180 950,230 1000,180 950,130" fill="url(%23f)"/></svg>');
+            animation: float 35s ease-in-out infinite;
+        }
+
+        .solution-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .detail-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .detail-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        /* Phase Timeline */
+        .phase-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .phase {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .phase-number {
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .phase-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .phase-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Market Segments */
+        .market-segments {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .segment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .segment:hover {
+            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+        }
+
+        .segment i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .segment h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .segment p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Revenue Streams */
+        .revenue-streams {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .stream {
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stream:hover {
+            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        }
+
+        .stream-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stream-header i {
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-success);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .stream-header span {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .stream p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-left: 2.6rem;
+        }
+
         .solution-visual {
             position: relative;
             height: 500px;
@@ -943,6 +1237,15 @@
                 gap: 2rem;
             }
 
+            .solution-details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+
             .team-profile {
                 flex-direction: column;
                 text-align: center;
@@ -958,6 +1261,22 @@
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
+            }
+
+            .detail-card {
+                padding: 2rem;
+            }
+
+            .phase-timeline {
+                gap: 1rem;
+            }
+
+            .market-segments {
+                gap: 1rem;
+            }
+
+            .revenue-streams {
+                gap: 1rem;
             }
         }
 
@@ -1165,31 +1484,68 @@
         <div class="solution-showcase">
             <div class="solution-content">
                 <h3>From Reactive to Predictive</h3>
-                <p>Our AI-powered system learns from every transaction, customer interaction, and market condition to predict and prevent problems before they impact your business.</p>
+                <p>Our AI-powered system learns from every transaction, customer interaction, and market condition to predict and prevent problems before they impact your business. We're building the next generation of restaurant intelligence that delivers 10X better value than traditional POS systems.</p>
+                
+                <!-- Enhanced Solution Features -->
                 <div class="solution-features">
                     <div class="solution-feature">
                         <div class="solution-feature-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <span>AI Inventory Management</span>
+                        <div class="feature-content">
+                            <span class="feature-title">AI Inventory Management</span>
+                            <span class="feature-description">Predictive ordering, waste reduction, and real-time stock optimization</span>
+                        </div>
                     </div>
                     <div class="solution-feature">
                         <div class="solution-feature-icon">
                             <i class="fas fa-microphone"></i>
                         </div>
-                        <span>Voice-Activated POS</span>
+                        <div class="feature-content">
+                            <span class="feature-title">Voice-Activated POS</span>
+                            <span class="feature-description">Natural language processing for hands-free order management</span>
+                        </div>
                     </div>
                     <div class="solution-feature">
                         <div class="solution-feature-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
-                        <span>Dynamic Pricing</span>
+                        <div class="feature-content">
+                            <span class="feature-title">Dynamic Pricing</span>
+                            <span class="feature-description">AI-driven pricing optimization based on demand, weather, and events</span>
+                        </div>
                     </div>
                     <div class="solution-feature">
                         <div class="solution-feature-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <span>Smart Staff Scheduling</span>
+                        <div class="feature-content">
+                            <span class="feature-title">Smart Staff Scheduling</span>
+                            <span class="feature-description">Predictive scheduling based on historical data and real-time demand</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competitive Advantages -->
+                <div class="competitive-advantages">
+                    <h4>Why We're 10X Better</h4>
+                    <div class="advantage-grid">
+                        <div class="advantage-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Real-time AI learning</span>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>30% cost reduction</span>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-clock"></i>
+                            <span>90% faster operations</span>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Enterprise-grade security</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1198,6 +1554,109 @@
                     <i class="fas fa-robot"></i>
                     <h4>AI-Powered Intelligence</h4>
                     <p>Real-time insights & predictions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Solution Details Section -->
+    <section class="section solution-details">
+        <div class="section-header">
+            <h2 class="section-title">Solution Roadmap & Business Model</h2>
+            <p class="section-subtitle">Our comprehensive approach to transforming restaurant operations through AI innovation</p>
+        </div>
+        
+        <div class="solution-details-grid">
+            <!-- Development Phases -->
+            <div class="detail-card">
+                <div class="detail-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h3>Development Phases</h3>
+                <div class="phase-timeline">
+                    <div class="phase">
+                        <span class="phase-number">1</span>
+                        <div class="phase-content">
+                            <h4>Core AI Engine</h4>
+                            <p>ML models for inventory prediction and demand forecasting</p>
+                        </div>
+                    </div>
+                    <div class="phase">
+                        <span class="phase-number">2</span>
+                        <div class="phase-content">
+                            <h4>Voice Interface</h4>
+                            <p>Natural language processing for hands-free operations</p>
+                        </div>
+                    </div>
+                    <div class="phase">
+                        <span class="phase-number">3</span>
+                        <div class="phase-content">
+                            <h4>Predictive Analytics</h4>
+                            <p>Advanced forecasting and optimization algorithms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target Markets -->
+            <div class="detail-card">
+                <div class="detail-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Target Markets</h3>
+                <div class="market-segments">
+                    <div class="segment">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <h4>Quick Service Restaurants</h4>
+                            <p>High-volume, fast-paced operations</p>
+                        </div>
+                    </div>
+                    <div class="segment">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <h4>Fine Dining</h4>
+                            <p>Premium experience with inventory optimization</p>
+                        </div>
+                    </div>
+                    <div class="segment">
+                        <i class="fas fa-store"></i>
+                        <div>
+                            <h4>Restaurant Chains</h4>
+                            <p>Multi-location management and analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Model -->
+            <div class="detail-card">
+                <div class="detail-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Revenue Model</h3>
+                <div class="revenue-streams">
+                    <div class="stream">
+                        <div class="stream-header">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Subscription Plans</span>
+                        </div>
+                        <p>Monthly/annual SaaS pricing with tiered features</p>
+                    </div>
+                    <div class="stream">
+                        <div class="stream-header">
+                            <i class="fas fa-percentage"></i>
+                            <span>Transaction Fees</span>
+                        </div>
+                        <p>Small percentage on processed transactions</p>
+                    </div>
+                    <div class="stream">
+                        <div class="stream-header">
+                            <i class="fas fa-cogs"></i>
+                            <span>Implementation Services</span>
+                        </div>
+                        <p>Custom setup and training for enterprise clients</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1535,6 +1994,40 @@
         document.querySelectorAll('.solution-feature').forEach((feature, index) => {
             feature.style.animationDelay = `${index * 0.1}s`;
             feature.style.animation = 'slideInLeft 0.6s ease-out forwards';
+        });
+
+        // Interactive solution details cards
+        document.querySelectorAll('.detail-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.style.animation = 'slideInUp 0.8s ease-out forwards';
+            
+            // Add click interaction
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02) rotate(1deg)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                }, 150);
+            });
+        });
+
+        // Phase timeline interaction
+        document.querySelectorAll('.phase').forEach((phase, index) => {
+            phase.style.animationDelay = `${index * 0.3}s`;
+            phase.style.animation = 'slideInLeft 0.6s ease-out forwards';
+            
+            phase.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)';
+                this.style.borderRadius = '12px';
+                this.style.padding = '0.5rem';
+            });
+            
+            phase.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.background = 'transparent';
+                this.style.borderRadius = '0';
+                this.style.padding = '0';
+            });
         });
 
         // Add click effects to CTA buttons with restaurant theme
